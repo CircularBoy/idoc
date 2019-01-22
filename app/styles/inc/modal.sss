@@ -1,0 +1,89 @@
+[data-basicLightbox]
+  // display: none !important
+
+.basicLightbox
+  background: rgba(0, 0, 0, .7)
+
+  .modal
+    display: block
+
+  &__placeholder
+
+
+.modal
+  background: #fff
+  margin: 0 auto
+  display: none
+  position: relative
+
+  .modal__content
+    max-height: 80vh
+  
+  &__inner
+    width: calc(100% - 20px) @sm calc(100% - 40px) @lg calc(100% - 50px) @xl calc(1200px - 40px)
+    margin: 0 auto
+    background-color: #fff
+    padding: 35px 4px 30px 20px @sm 30px 16px 30px 40px @md 60px 50px 60px 74px
+    overflow: auto
+    position: relative
+
+  &--recall
+    width: calc(100% - 20px) @sm 460px
+    padding: 25px 20px 30px 20px @sm 30px 40px @md 60px 74px
+  
+  &--full
+    width: calc(100% - 20px) @sm calc(100% - 40px) @lg calc(100% - 50px) @xl calc(1200px - 40px)
+    padding: 35px 4px 30px 20px @sm 30px 16px 30px 40px @md 60px 50px 60px 74px
+    overflow: auto
+
+  &--vue
+    display: block
+    position: fixed 0 0 0 0
+    z-index: 99999
+    background-color: rgba(0,0,0,.2)
+    width: 100% !important
+    box: center middle
+    overflow: hidden
+
+    .modal__content
+      max-height: 80vh
+
+    .experts__item--modal
+      padding-right: 16px @sm 24px
+      box-sizing: border-box
+
+
+  &--video
+    border-radius: 0
+
+    iframe
+      display: block
+      size: 290px 160px @xs 400px 230px @md 580px 330px @lg 760px 426px @xl 820px 460px
+
+  &__close
+    background: svg-load('close-modal.svg', fill: $secondary-dark) center / contain
+    size: 20px
+    position: absolute 14px 20px null null
+    cursor: pointer
+    transition: $transition
+    z-index: 2
+    opacity: .9
+
+    &:hover
+      transform: scale(1.1) translate(-2px, 2px)
+      opacity: 1
+
+  &__title
+    @extend .hero__recall-title
+
+  &__text
+    @extend .hero__recall-text
+
+  &__form
+
+    > * + *
+      margin-top: 10px @sm 16px
+
+  &__btn
+    padding: * 15px
+    width: 100%

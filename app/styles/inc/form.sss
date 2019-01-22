@@ -1,0 +1,143 @@
+.form
+  width: 100%
+  max-width: 370px
+  margin-right: 1px @xs 0
+  position: relative
+
+  &--hide
+    background-color: #000 !important
+
+      
+  &--horizontal
+    max-width: 100%
+
+    ^&__form
+      box: horizontal right space-between wrap
+      max-width: 370px @lg 100%
+      margin: 0 auto
+
+      .input-field
+        margin-top: 0
+        margin-bottom: 26px
+        width: 100% @lg 48% @xl 270px
+
+      .input-field:last-of-type
+        margin-bottom: 0
+        margin-top: 15px
+        min-width: 100%
+        text-align: center
+        box: vertical center
+
+  &__title
+    margin-bottom: 20px
+    text: 16px * 600 @sm 18px
+    text-transform: uppercase
+    text-align: center
+
+  &__politic
+    margin-top: 10px
+    text: 12px
+    text-align: center
+    text-transform: uppercase
+    cursor: pointer
+
+    &:after
+      content: ''
+      display: inline-block
+      margin-left: 6px
+      background: svg-load('lock.svg', fill: $secondary)
+      size: size('lock.svg')
+  
+  &__form
+    & > * 
+      opacity: 1
+      tansititon: $transition
+      
+    &--load
+      & > *:not(.form-load)
+        opacity: 0
+
+      .form-load
+        display: block
+
+    
+
+.input-field
+  opacity: 1
+  box: center
+  transition: $transition
+
+  & + &
+    margin-top: 26px
+  
+  &:after
+    content: ''
+    margin-left: -51px
+    position: relative
+    z-index: 22
+    pointer-events: none
+    opacity: 1
+    transition: $transition
+
+  @each $icon in person, email, phone, skype
+    &--$(icon)
+      &:after
+        background: svg-load('$(icon).svg', fill: $secondary)
+        display: inline-block
+        size: size('$(icon).svg')
+
+  @each $icon in person, email, phone, skype
+    &--$(icon).input-field--error
+      &:after
+        background: svg-load('$(icon).svg', fill: $primary-dark)
+        display: inline-block
+        size: size('$(icon).svg')
+
+  &--bordered
+    .input
+      border-color: $secondary-dark
+
+      &:focus
+        border-color: rgb(52, 49, 38, .5)
+
+  &--error
+    .input
+      border-color: #ce111d
+      text: #b79569
+
+  &--focus
+
+    &:after
+      opacity: 0
+
+.input
+  position: relative
+  border: 1px solid
+  border-color: transparent
+  padding: 0 15px
+  height: 49px
+  line-height: 49px
+  outline: 0
+  text: $secondary-dark 16px @sm 18px
+  font-family: $ff
+  width: 100%
+  transition: $transition
+
+  &::placeholder
+    text: rgb(52, 49, 38, .59)
+
+  &:focus
+    border-color: $secondary-dark
+  
+
+.form-load
+  display: none
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+
+  .form-load__text
+    font-size: 16px
+    margin-top: 10px
+    text-align: center

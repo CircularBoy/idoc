@@ -1,0 +1,123 @@
+.glide
+
+  &__bullets
+    box: center middle
+    
+    &--only-xs
+      display: flex @sm none
+
+    &--only-sm
+      display: flex @md none
+
+    &--lighter-sm
+
+      ^^&__bullet
+        background-color: @sm-down rgba(255, 255, 255, .3)
+
+        &:hover, &--active
+          background-color: @sm-down rgba(255, 255, 255, 1)
+
+    &--lighter-md
+
+      ^^&__bullet
+        background-color: @md-down rgba(255, 255, 255, .3)
+
+        &:hover, &--active
+          background-color: @md-down rgba(255, 255, 255, 1)
+
+  &__bullet
+    size: 6px
+    margin-right: 14px
+    border-radius: 50%
+    background-color: rgba(135, 135, 135, .3)
+    transition: $transition
+    cursor: pointer
+
+    &:last-child
+      margin-right: 0 
+
+    &--active
+      background-color: #818181
+  
+    &--lighter
+      background-color: @sm-down rgba(255, 255, 255, .3)
+
+      &:hover, &--active
+        background-color: @sm-down rgba(255, 255, 255, 1)
+
+  //panel for all functional
+  
+  &__panel
+    box: middle center @sm space-between center
+    position: absolute @md initial @xl absolute
+    background-color: initial @md #F3F8FF @xl none
+    bottom: -35px @sm 10px @md 26px
+    padding: 0 30px
+    box-sizing: border-box
+    width: 100% @xl 42%
+    text: #d9d9d9 14px * 700
+    padding-top: @sm-down 10px
+    padding-bottom:  0 @md 28px @xl 0
+
+  &__count
+    display: @sm-down none
+
+  &__count-current
+    // text: $blue 24px 
+
+  &__arrows
+    display: @sm-down none
+    margin-top: 3px
+
+  &__arrow
+    display: block @lg none
+    position: absolute
+    top: 40% @md 35%
+    border: 0 @md 1px solid #000
+    // background: svg-load('circle-slider.svg') no-repeat center
+    cursor: pointer
+    transition: $transition
+    size: 58px
+    border-radius: 50%
+    z-index: 998
+    box-shadow: none @md 0px 3px 9.7px 0.3px rgba(0, 0, 0, 0.23)
+
+    &:before
+      content: ''
+      position: absolute 0px 0px 0px 0px
+      display: block
+      z-index: 9999
+      box-shadow: inset 0px 0 0 1px #fff
+      border-radius: 50%
+      opacity: 0
+
+    &:after
+      content: ''
+      position: absolute 0px 0px 0px 0px
+      display: block
+      z-index: 9999
+      transform: rotate(-90deg)
+      background: svg-load('arrow-slider.svg') no-repeat top 8px center / 60%
+      border-radius: 50%
+      transition: $transition
+
+    &--prev
+      left: 10px @md 30px
+
+    &--next
+      right: 10px @md 30px
+
+      &:after
+        transform: rotate(90deg)
+
+    &:hover
+      border-color: transparent
+
+    &:active
+      border-color: transparent
+      box-shadow: 0px 3px 4.95px 0.05px rgba(0, 0, 0, 0.23)
+
+      &:after
+        opacity: .5
+
+  

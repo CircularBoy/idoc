@@ -1,0 +1,131 @@
+.experts
+  padding: 10px 0 40px @sm 30px 0 40px @lg 30px 0 40px @xl 0 0 80px
+
+  &__title
+    margin-bottom: 0 @md -15px @xl 0px
+    text-align: center
+
+  &__items
+    box: space-between wrap
+    margin: 0 @lg 0 -15px @xl 0 -20px
+
+  &__item
+    flex-flow: column @sm row
+    display: none
+    width: 100% @xl 50%
+    max-width: 100% @xl 50%
+    margin-top: 20px @md 50px
+    padding: 0 @lg 0 15px @xl 0 20px
+
+    &&--modal
+      display: flex
+      width: 100%
+      max-width: 100%
+
+      ^^&__visual
+        box: center top
+        margin-top: 0 @xl 40px
+
+      ^^&__item-button
+        margin-top: 50px
+
+      ^^&__desc
+        p
+          margin-top: 30px
+
+    &--active
+      display: flex
+
+  &__visual
+    box: vertical center middle @lg left
+    margin-right: 0 @sm 40px
+  
+  &__avatar
+    background: #eeeeee
+    size: 170px 199px
+    border-radius: 50%
+
+    @each $item, $i in avatar-1, avatar-1, avatar-2, avatar-3, avatar-4, avatar-5, avatar-6, avatar-7, avatar-8
+      &--$(i)
+        background: url('../img/experts/$(item).png') no-repeat center / cover
+
+
+  &__item-button
+    margin-top: 25px
+    display: inline-block
+    white-space: nowrap
+
+  &__name
+    margin: 20px 0 -6px @md 0
+    text: 20px 2 600
+    text-align: center @sm left
+
+  &__dir
+    text: 14px
+    text-align: center @sm left
+
+  &__xp
+    text: 14px * 700 @md 16px
+    margin: 15px 0 22px @md 18px 0 20px
+
+  &__desc
+    text: 16px 1.6 @md 1.7
+
+  &__detail
+    margin-top: 10px @md 5px
+    text: $primary 18px
+    cursor: pointer
+
+    &:after 
+      margin-left: 8px
+      content: ''
+      display: inline-block
+      background: svg-load('experts/arrow.svg' fill: $primary) no-repeat center / contain
+      size: size('experts/arrow.svg')
+
+  &__education-title
+    margin: 30px 0 20px
+
+  &__education-li
+
+    & + &
+      margin-top: 8px
+
+    &:before
+      display: inline-block
+      content: ''
+      background-color: $secondary
+      size: 7px
+      margin-bottom: 3px
+      margin-right: 8px
+
+  &__btn-wrap
+    margin-top: 25px @md 30px @xl 40px
+    width: 100%
+    min-width: 100%
+    margin: * auto
+    text-align: center
+
+  &__button
+    display: inline-block
+    text: $secondary-dark 14px
+    box-sizing: border-box
+    background-color: transparent
+    border: 2px solid $secondary
+
+    &:hover
+      background-color: $primary
+      border-color: $primary
+      text: #fff
+
+    &:after 
+      margin-left: 15px
+      content: ''
+      display: inline-block
+      background: svg-load('experts/arrow.svg' fill: $secondary-dark) no-repeat center / contain
+      size: size('experts/arrow.svg')
+      transition: $transition
+
+    &:hover:after
+      background: svg-load('experts/arrow.svg' fill: #fff) no-repeat center / contain
+      transform: translateX(5px)

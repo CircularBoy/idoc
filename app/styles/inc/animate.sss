@@ -1,0 +1,66 @@
+.aos
+  &-init
+    opacity: 0
+    transform: translateY(30px) scale(.97)
+
+  &-animate
+    opacity: 1 !important
+    transition: 1s ease
+    transform: translateY(0) scale(1) !important
+  
+[data-aos]
+  opacity: 0
+  transform: translateY(30px)
+
+  &:nth-child(2)
+    transition-delay: .05s
+  &:nth-child(3)
+    transition-delay: .07s
+  &:nth-child(4)
+    transition-delay: .09s
+  &:nth-child(5)
+    transition-delay: .11s
+  &:nth-child(6)
+    transition-delay: .13s
+  &:nth-child(7)
+    transition-delay: .15s
+  &:nth-child(8)
+    transition-delay: .17s
+  &:nth-child(9)
+    transition-delay: .19s
+  &:nth-child(9)
+    transition-delay: .21s
+  &:nth-child(9)
+    transition-delay: .23s
+  &:nth-child(9)
+    transition-delay: .25s
+  &:nth-child(9)
+    transition-delay: .27s
+  &:nth-child(9)
+    transition-delay: .29s
+  &:nth-child(9)
+    transition-delay: .31s
+  &:nth-child(9)
+    transition-delay: .33s
+
+.services__inner, .offices, .team
+  .glide__slides, .glide__track
+    overflow: @lg visible
+
+.animate
+  transform: translateY(30px) scale(.97)
+  transition: .5s ease
+  opacity: 0
+
+  &--end
+    transform: translateY(0) scale(1)
+    opacity: 1
+
+.fade-enter-active, .fade-leave-active
+  transition: opacity .3s ease-in-out
+
+.fade-enter, .fade-leave-to
+  opacity: 0
+
+transition
+  display: none

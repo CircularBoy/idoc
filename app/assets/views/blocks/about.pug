@@ -1,0 +1,18 @@
+
+section#why.about
+  .container
+    .about__slider
+      .glide
+        .about__imac
+          h2.about__title.h2 Для чего нужна психотерапия?
+          .about__slider-prev.glide__arrow.glide__arrow--prev
+          .about__slider-next.glide__arrow.glide__arrow--next
+          .glide__track(data-glide-el='track')
+            .about__wrap.glide__slides
+              each item in about
+                .about__item.glide__slide(data-aos='fade-up')
+                  div(class="about__img about__img--" + item.img)
+                  .about__item-title!= item.title
+          
+          .about__btn.btn.btn--small.btn--wide(data-show-id='recall') попробовать бесплатно
+

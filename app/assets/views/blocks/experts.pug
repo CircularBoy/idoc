@@ -1,0 +1,15 @@
+section#team.experts
+  .container
+    .experts__title.h2 Выбрать психолога
+
+    .experts__items
+      each item in experts
+        if(item.show)
+          .experts__item.experts__item--active(data-aos='fade-up')
+            +expert(item)
+        else
+          .experts__item
+            +expert(item)
+          
+      .experts__btn-wrap
+        .experts__button.btn.btn--normal(data-all-experts) Свободные психологи

@@ -1,0 +1,100 @@
+.header
+  position: fixed
+  z-index: 999
+  left: 0
+  right: 0
+  top: 0
+  background-color: rgb(233, 233, 233)
+  box-shadow: 0
+  transition: $transition
+
+  &--scroll
+    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.35)
+
+    ^&__container
+      height: 72px @md 95px @xl 95px
+
+  &--menu-open
+    background: #fff
+    box-shadow: none
+    border-bottom: 1px solid #ececec @md 0
+
+  &__container
+    position: relative
+    box: space-between center
+    padding: 20px 3vw @sm 20px 0 @md 18px 0 51px @xl 0
+    height: 72px @md 101px @xl 114px
+    transition: $transition
+    will-change: height
+
+  &__logo
+    display: block
+    size: 48px 22px
+    background: svg-load('logo.svg', fill: $secondary-dark) no-repeat center / contain
+    will-change: background
+    transition: $transition
+    opacity: 1
+
+    &:hover
+      background: svg-load('logo.svg', fill: $primary-dark) no-repeat center / contain
+
+    &:active
+      opacity: .5
+
+  &__nav
+    box: center
+    box: @md-down vertical center
+    display: @md-down none
+    position: fixed @md absolute @xl static
+    z-index: 99
+    left: @md-down 0
+    right: @md-down 0
+    bottom: initial @md -10px
+    top: @md-down 73px
+    background-color: @md-down #fff
+    height: calc(100vh - 73px) @md initial
+
+    &&--open
+      display: flex
+
+  &__nav-link
+    text: $secondary-dark 14px 60px 600 @md 13px * 700 @xl 14px
+    text-align: center
+    transition: $transition
+    text-transform: uppercase
+    text-decoration: none
+    box: @md-down center middle
+    width: @md-down 100%
+    height: 60px @md initial
+    opacity: 1
+    border-bottom: 1px solid #ececec @md 0
+
+    & + &
+      margin-left: 0 @md 30px
+
+    &:hover, &--active
+      text: $secondary
+
+    &:active
+      opacity: .5
+
+  &__nav-soc
+    display: flex @md none
+    margin: 30px auto
+
+  &__mobile-menu
+    display: block @md none
+    border: 0
+    outline: 0
+    background-color: transparent
+
+    .menu-global
+      border-color: $secondary-dark
+
+  &__soc
+    display: none @md flex @xl none
+
+  &__btn
+    padding: @xl-down 10px 17px
+    display: block
+

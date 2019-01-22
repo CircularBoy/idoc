@@ -1,0 +1,36 @@
+.btn
+  background-color: $primary
+  display: inline-block
+  border: 0
+  outline: 0
+  padding: 20px 26px
+  text: #fff 12px 12px 700
+  cursor: pointer
+  text-transform: uppercase
+  transition: $transition
+  text-decoration: none
+  white-space: nowrap
+  opacity: 1
+
+  &:hover
+    background-color: $primary-dark
+
+  &:active
+    opacity: .5
+
+  &--small
+    text: 12px
+
+  &--normal
+    text: 14px
+
+  &--big
+    text: 12px @xl 16px
+
+  &--wide
+    padding: 20px 40px
+  
+  &--all-width
+    width: 100%
+    text-align: center
+

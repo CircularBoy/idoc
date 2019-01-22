@@ -1,0 +1,47 @@
+.price
+  padding: 0 0 50px @lg 110px 0 100px
+  position: relative
+  background-color: $white-dark
+
+  &__photo
+    position: static @lg absolute
+    width: 100% @lg initial
+    height: 420px @md 420px @lg 100%
+    right: 0
+    top: 0
+    left: 50%
+    bottom: 0
+    background: url('../img/price/price-photo.jpg') no-repeat left top / cover
+    background-position: left center top @lg left -140px top @xl left -120px top @fl left top
+
+  &__text-wrap
+    margin-top: 20px @sm 40px @lg 0
+    width: 100% @lg 50%
+    padding-right: 0 @lg 60px
+    text-align: center @lg left
+
+    .form
+      margin: 0 auto @lg 0
+
+  &__title
+    margin-bottom: 14px @sm 15px @lg 40px
+
+  &__price
+    text: 20px * 600
+    margin-bottom: 25px @lg 60px
+
+  .price-wrap
+    display: block @sm inline-block
+    margin-top: -2px @sm 0
+
+  &__colored
+    text: $primary 30px * 700
+
+    &:before
+      content: ''
+      margin-left: 10px
+      display: inline-block
+      position: relative
+      bottom: -2px
+      background: svg-load('price/dollar.svg', fill: $primary)
+      size: size('price/dollar.svg')

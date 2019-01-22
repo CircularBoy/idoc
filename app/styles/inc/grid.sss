@@ -1,0 +1,105 @@
+body
+  box: vertical space-between
+  min-height: 100vh
+  
+.container
+  position: relative
+  max-width: $container-sm-px
+  margin: * auto
+  padding: * 14px @md * 3vw @xl * 26px
+
+  &--min
+    padding: 0 @xl * 90px
+
+@media $md 
+  .container
+    max-width: $container-md-px
+
+@media $lg
+  .container
+    max-width: $container-lg-px
+
+@media $xl
+  .container
+    max-width: $container-xl-px
+
+.row
+  display: flex
+  flex-wrap: wrap
+  margin: 0 -7px @md 0 -3vw @xl 0 -26px
+
+.col-12
+  width: 100%
+  padding: 0 7px @md 0 3vw @xl 0 26px
+
+.col-6
+  width: 50%
+  padding: 0 7px @md 0 3vw @xl 0 26px
+
+.col-4
+  width: 33.33333%
+  padding: 0 7px @md 0 3vw @xl 0 26px
+
+@media $sm
+  .col-sm-6
+    width: 50%
+
+@media $md 
+  .col-md-8
+    width: 66.66666%
+
+  .col-md-5
+    width: 41.66666%
+
+  .col-md-6
+    width: 50%
+
+  .col-md-7
+    width: 58.33333%
+  
+  .col-md-4
+    width: 33.33334%
+
+  .col-md-3
+    width: 25%
+    
+  .col-md-9
+    width: 75%
+    
+@media $lg
+  .col-lg-3
+    width: 25%
+  
+  .col-lg-4
+    width: 33.33334%
+
+  .col-lg-5
+    width: 41.66666%
+  
+  .col-lg-6
+    width: 50%
+
+  .col-lg-7
+    width: 58.33333%
+
+  .col-lg-8
+    width: 66.66666%
+
+  .col-lg-9
+    width: 75%
+
+@media $xl
+  .col-xl-3
+    width: 25%
+  
+  .col-xl-4
+    width: 33.33334%
+
+  .col-xl-5
+    width: 41.66666%
+  
+  .col-xl-6
+    width: 50%
+
+  .col-xl-7
+    width: 58.33333%

@@ -1,0 +1,28 @@
+.next-block
+  display: none @md block	
+  position: absolute
+  // left: calc((100vw - 720px) / 2) @lg calc((100vw - 1200px) / 2 + 90px + 26px + 75px / 2)
+  left: calc((100vw - 720px) / 2) @lg calc((100vw - 1200px) / 2 + 90px)
+  z-index: 99
+  top: 0
+  border: calc(180px / 2) solid transparent
+  border-top: 90px solid #fff
+
+  &:after
+    content: ''
+    left: -42px
+    top: -68px
+    position: absolute
+    background: svg-load('next-block.svg', fill: #000)
+    size: size('next-block.svg')
+    animation: bounce 2s infinite
+  
+@keyframes bounce 
+  0%, 20%, 50%, 80%, 100% 
+    transform: translateY(0)
+
+  40% 
+    transform: translateY(-15px)
+
+  60% 
+    transform: translateY(-8px)

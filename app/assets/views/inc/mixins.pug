@@ -1,0 +1,59 @@
+mixin soc()
+  div(class!=attributes.class)
+    a.soc__item.soc__item--teleg(href='https://t.me/ipsychologist_online' target="_blank")
+    a.soc__item.soc__item--vk(href='https://vk.com/ipsychologist.online' target="_blank")
+    a.soc__item.soc__item--inst(href='https://www.instagram.com/ipsychologist.online' target="_blank")
+    a.soc__item.soc__item--face(href='https://www.facebook.com/ipsychologist.online' target="_blank")
+
+mixin next-block(link)
+  a.next-block.scroll-to(href='#' + link)
+
+mixin expert(item, full)
+  .experts__visual
+    .experts__avatar(class='experts__avatar--' + item.img)
+    .experts__item-button.btn.btn--small.btn--wide(data-show-id='recall' data-exp-id= item.id @click="activeModal = null; currentExpert = '"+item.id+"'") Заказать сессию
+
+  .experts__text
+    .experts__name= item.name
+    .experts__dir= item.dir
+    .experts__xp= item.xp
+    if(!full)
+      .experts__desc= item.desc
+      .experts__detail.expert-detail(@click="activeModal = 'short-form "+item.id+"'") Подробнее
+
+    if(full)
+      .experts__desc.experts__desc--full!= item.descFull
+
+      .experts__education
+        .experts__education-title Образование:
+
+        ul.experts__education-list
+          each li in item.education
+            li.experts__education-li= li
+
+mixin form(selector, title)
+
+  form.form__form.form__form(method='post' class=selector)
+    .form-load
+      .loader
+      .form-load__text Отправляем данные
+
+    .input-field.input-field--person.input-field--bordered
+      input(type='hidden' name="DATA[TITLE]" value=title)
+      input.input(type='text' placeholder='Имя' name="DATA[NAME]")
+
+    .input-field.input-field--email.input-field--bordered
+      input.input(type='text' placeholder='E-mail' name="DATA[ADDRESS]")
+
+    .input-field.input-field--phone.input-field--bordered
+      input.input(type='text' placeholder='Телефон' name="DATA[PHONE_MOBILE]")
+
+    .input-field.input-field--skype.input-field--bordered
+      input.input(type='text' placeholder='Skype' name="DATA[IM_SKYPE]")
+    
+      input(type='hidden' data-input-id value='' name="DATA[COMMENTS]")
+
+    .input-field
+      button.btn.btn--wide.btn--big(type="submit") Попробовать бесплатно
+    
+      .form__politic(data-show-id='politic') Политика конфиденциальности

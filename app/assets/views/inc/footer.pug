@@ -1,0 +1,40 @@
+footer.footer
+  .footer__container.container
+    .footer__wrap
+
+      .footer__nav
+        a.footer__nav-link.footer__nav-link--active.scroll-to(href='#main') Главная
+        a.footer__nav-link.scroll-to(href='/#therapy') Онлайн-терапия
+        a.footer__nav-link.scroll-to(href='/#team') Специалисты
+        a.footer__nav-link.scroll-to(href='/#work') О компании
+        a.footer__nav-link.scroll-to(href='/#price') Попробовать
+
+
+
+      .footer__contacts
+        .footer__contacts-item
+          p.footer__contacts-title Телефон: 
+          a.footer__contacts-link.link(href='tel:380978401603') +380978401603
+
+        .footer__contacts-item
+          p.footer__contacts-title e-mail: 
+          a.footer__contacts-link.link(href='mailto:ipsychologist.contact@gmail.com') ipsychologist.contact@gmail.com
+
+      .footer__doc
+        p.footer__doc-title Пользовательское соглашение
+        
+        .footer__doc-wrap
+          a.footer__doc-link.link(href="#!" data-show-id='offert') Публичная офферта 
+          a.footer__doc-link.link(href="#!" data-show-id='politic') Политика конфидециальности
+          a.footer__doc-link.link(href="#!" data-show-id='work') Для терапевтов
+
+
+    .footer__socials
+      +soc(class="footer__soc soc soc--horizontal soc--left soc--invert-color")
+
+    .footer__copy
+      .footer__copy-wrap
+        a.footer__logo
+
+        .footer__copy-right
+          | &copy; 2015-2018 "iPsychologist"

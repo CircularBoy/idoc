@@ -1,0 +1,74 @@
+.work
+  background-color: $white-dark
+  padding-bottom: 80px
+  position: relative
+
+  &__img
+    position: static @xl absolute
+    left: 0
+    right: 50%
+    height: 500px @xl calc(585px + 80px)
+    background: resolve('work/left-img.jpg') no-repeat left top / cover
+
+  &__wrap-top, &__wrap-bottom
+    margin: 0 @xs 0 -8px @sm 0 -20px @lg 0 -40px @xl 0
+
+  &__wrap-top
+    box: horizontal space-between @xl vertical right
+
+    &-text
+      box: vertical @md horizontal space-between @xl vertical right
+
+      ^^&__item
+        width: 100% @md 50% @xl 100%
+        min-width: 100% @md 50% @xl 100%
+
+        &:last-child
+
+          ^^^^&__item-title
+            margin-bottom: 10px @lg 49px @xl 20px
+
+  &__text-top
+    width: 100% @xl 50%
+    padding-top: 40px @xl 80px
+
+  &__title
+    margin-left: 0 @md 0 @xl 130px
+    margin-bottom: -10px
+    text-align: center @xl left
+
+  &__item
+    position: relative
+    width: 100% @md 50%
+    min-width: 100% @md 50%
+    margin-top: 30px @md 50px @lg 70px
+    box-sizing: border-box
+    padding: 0 25px @lg 0 60px
+    display: flex @md block @xl flex
+    flex-flow: column @md row
+    align-items: center @md flex-start
+
+  &__item-number
+    position: static @md absolute 0 * * 25px @lg absolute 0 * * 60px @xl static
+    text: $secondary 34px 1 800 @md 60px
+    margin: 0 0 6px 0 @md 0 26px * * @xl 50px 35px * *
+
+  &__item-title
+    text: $secondary-dark 20px 1.5 600
+    margin-bottom: 10px @md 20px @xl 20px
+    margin-left: 0 @md 60px @xl 0
+    width: 90% @xs 70% @sm 50% @md 55% @lg 70% @xl 100%
+    text-align: center @md left
+    margin: @md-down * auto
+
+  &__item-desc
+    text: $secondary-dark 18px 1.5
+
+  &__wrap-bottom
+    box: vertical @md horizontal space-between
+
+    ^&__item
+
+      &:last-child
+        ^^^&__item-title
+          margin-bottom: 10px @md 49px @xl 20px

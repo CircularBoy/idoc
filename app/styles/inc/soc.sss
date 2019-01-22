@@ -1,0 +1,62 @@
+.soc
+  box: space-between center
+
+  &__item
+    opacity: 1
+    transition: $transition
+
+    @each $item in teleg, vk, inst, face
+      &--$(item)
+        background: svg-load('soc/$(item).svg', fill: $secondary) no-repeat center / contain
+        size: size('soc/$(item).svg')
+
+        &:hover
+          background: svg-load('soc/$(item).svg', fill: $primary-dark) no-repeat center / contain
+        
+        &:active
+          opacity: .5
+
+  &--horizontal
+
+    ^&__item 
+
+      & + .soc__item
+        margin-left: 21px
+
+  &--vertical
+
+    ^&__item
+
+      & + .soc__item
+        margin-top: 16px
+
+      &:nth-child(2)
+        transform: translateY(-4px)
+        margin-bottom: -6px
+
+  &--left
+    box: center top
+
+  &--invert-color
+
+    ^&__item
+      @each $item in teleg, vk, inst, face
+        &--$(item)
+          background: svg-load('soc/$(item).svg', fill: $secondary) no-repeat center / contain
+          size: size('soc/$(item).svg')
+
+          &:hover
+            background: svg-load('soc/$(item).svg', fill: #fff) no-repeat center / contain
+
+
+  &--fixed
+    position: fixed
+    left: 0
+    top: 50%
+    padding: 18px 14px
+    background-color: $white-dark
+    box-shadow: 0px 1px 0.8px 0.2px rgba(0, 0, 0, 0.35)
+    transform: translateY(-50%)
+    box: vertical center middle
+    display: @xl-down none
+

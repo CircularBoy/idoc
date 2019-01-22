@@ -1,0 +1,43 @@
+.loader {
+  margin: auto;
+  width:50px;
+  height:50px;
+  border-radius: 50%;
+  border:6px solid #EEE;
+  border-top-color: #f06563;
+  -webkit-animation: loading 1s infinite linear;
+  -moz-animation: loading 1s infinite linear;
+  -o-animation: loading 1s infinite linear;
+  -ms-animation: loading 1s infinite linear;
+  animation: loading 1s infinite linear
+}
+
+@-webkit-keyframes loading {
+  100% {
+    transform: rotate(360deg)
+  }
+}
+
+@-moz-keyframes loading {
+  100% {
+    transform: rotate(360deg)
+  }
+}
+
+@-o-keyframes loading {
+  100% {
+    transform: rotate(360deg)
+  }
+}
+
+@-ms-keyframes loading {
+  100% {
+    transform: rotate(360deg)
+  }
+}
+
+@keyframes loading {
+  100% {
+    transform: rotate(360deg)
+  }
+}

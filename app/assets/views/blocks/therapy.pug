@@ -1,0 +1,11 @@
+section#therapy.therapy
+  +next-block('why')
+  .container
+    h2.therapy__title.h2 Онлайн-терапия
+
+    .therapy__wrap.container--min
+      each item in therapy
+        .therapy__item(data-dropdown)
+          div(class="therapy__img therapy__img--" + item.img)
+          .therapy__item-title!= item.title
+          .therapy__desc!= item.desc

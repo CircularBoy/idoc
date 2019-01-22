@@ -1,0 +1,58 @@
+section#about.about-us
+  .about-us__slider
+    .about-us__title.h2 Наши клиенты достиги своих целей с нами!
+    .glide
+      .about-us__slider-prev.glide__arrow.glide__arrow--prev
+      .about-us__slider-next.glide__arrow.glide__arrow--next
+      .glide__track(data-glide-el='track')
+        .glide__slides
+          each item in aboutUs
+            .glide__slide
+              .about-us__item
+                .about-us__date= item.date
+                .about-us__rate
+                .about-us__desc= item.desc
+                .about-us__person
+                  .about-us__avatar
+                    img.about-us__avatar-img(src="img/about-us/" + item.img)
+                  .about-us__person-wrap
+                    .about-us__name= item.name
+                    a.about-us__soc.link(href='https://www.facebook.com/pg/ipsychologist.online/reviews/?ref=page_internal') Facebook
+
+  .container
+    .about-us__wrap
+      .about-us__side
+        .about-us__title.about-us__title--hide-md.h2 Наши клиенты достигли своих целей с нами!
+
+        
+        .about-us__tablet
+          #scroll-icon.about-us__icon-scroll
+            include ../inc/scroll-icon.pug
+          .about-us__tablet-top
+          .about-us__tablet-right
+          .about-us__tablet-left
+          .about-us__tablet-bottom
+          //- .about-us__scroll.element(data-simplebar data-simplebar-auto-hide="false")
+          .about-us__scroll(data-custom-scroll-tablet)
+         
+            .about-us__inner
+              each item in aboutUs
+                .about-us__item
+                  .about-us__date= item.date
+                  .about-us__rate
+                  .about-us__desc= item.desc
+                  .about-us__person
+                    .about-us__avatar
+                      img.about-us__avatar-img(src="img/about-us/" + item.img)
+                    .about-us__person-wrap
+                      .about-us__name= item.name
+                      a.about-us__soc.link(href='https://www.facebook.com/pg/ipsychologist.online/reviews/?ref=page_internal') Facebook
+
+      .about-us__side
+        .about-us__title.h2 О нас пишут
+
+        .about-us__logoes
+          each item in aboutLogoes
+            a.about-us__logo(href=item.link target='new_blank')
+              img.about-us__logo-img(src='img/about-us/press/' + item.img)
+            

@@ -1,0 +1,45 @@
+section#price.price
+  +next-block('bonus')
+  .price__photo
+  .container
+    .price__text-wrap
+      .price__title.h2 Стоимость
+
+      .price__price Цена консультации: 
+      
+        p.price-wrap
+          <span class="price__colored"> 46</span> /сессия
+
+      .price__form.form
+        .form__title Записаться на консультацию
+
+        form.form__form.js-price-form(method='post')
+          .form-load
+            .loader
+            .form-load__text Отправляем данные
+
+          .input-field.input-field--person.input-field--bordered
+            input(type='hidden' name="DATA[TITLE]" value='Форма блок "Цена"')
+            input.input(type='text' placeholder='Имя' name="DATA[NAME]")
+
+          .input-field.input-field--email.input-field--bordered
+            input.input(type='text' placeholder='E-mail' name="DATA[ADDRESS]")
+
+          .input-field.input-field--phone.input-field--bordered
+            input.input(type='text' placeholder='Телефон' name="DATA[PHONE_MOBILE]")
+
+          .input-field.input-field--skype.input-field--bordered
+            input.input(type='text' placeholder='Skype' name="DATA[IM_SKYPE]")
+          
+            input(type='hidden' data-input-id value='' name="DATA[COMMENTS]")
+
+          .input-field
+            button.btn.btn--all-width.btn--big(type="submit") Записаться
+          
+          .form__politic(data-show-id='politic') Политика конфиденциальности
+
+      
+
+
+
+
