@@ -2,28 +2,14 @@
   .modal__close(onclick='closeModal()')
 
   .modal__content
-    .price__form.form
-      .form__title Записаться на консультацию
+    .action__form
+      form.form.form--border
+        input(type='hidden' value='Заказ звонка')
+        .form__desc Хотите узнать сколько будет стоить ремонт и можно ли починить ваш гаджет. Заполните форму и мы сообщим вам примерную стоимость за 15 минут.
 
-      form.form__form.js-recall(method='post')
-        .form-load
-          .loader
-          .form-load__text Отправляем данные
-        .input-field.input-field--person.input-field--bordered
-          input(type='hidden' name="DATA[TITLE]" value='Форма обратного звонка')
-          input.input(type='text' placeholder='Имя' name="DATA[NAME]")
-
-        .input-field.input-field--email.input-field--bordered
-          input.input(type='text' placeholder='E-mail' name="DATA[ADDRESS]")
-
-        .input-field.input-field--phone.input-field--bordered
-          input.input(type='text' placeholder='Телефон' name="DATA[PHONE_MOBILE]")
-
-        .input-field.input-field--skype.input-field--bordered
-          input.input(type='text' placeholder='Skype' name="DATA[IM_SKYPE]")
-        
-          input(type='hidden' data-input-id value='Не указан' name="DATA[COMMENTS]")
-
-        .input-field
-          button.btn.btn--all-width.btn--big(type='') Записаться
-        
+        .input-field.input-field--person.input-field
+          input.input(type='text' placeholder='Введите имя' name="name")
+        .input-field.input-field--phone.input-field
+          input.input(type='text' placeholder='Номер телефона' name="phone")
+        .input-field.input-field.input-field
+          input.btn.form--btn(type="submit" value="Заказать звонок")

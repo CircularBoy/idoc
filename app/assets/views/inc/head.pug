@@ -2,41 +2,23 @@ doctype html
 html(lang='en' dir='ltr')
   head
     //- google
-    script(async src="https://www.googletagmanager.com/gtag/js?id=UA-123707881-1")
-    script.
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+    //- script(async src="https://www.googletagmanager.com/gtag/js?id=UA-123707881-1")
+    //- script.
+    //-   window.dataLayer = window.dataLayer || [];
+    //-   function gtag(){dataLayer.push(arguments);}
+    //-   gtag('js', new Date());
 
-      gtag('config', 'UA-123707881-1');
+    //-   gtag('config', 'UA-123707881-1');
 
-    script(src="scripts/pixel-index.js")
+    //- script(src="scripts/pixel-index.js")
 
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    link(rel="apple-touch-icon", sizes="180x180", href="img/fav/apple-touch-icon.png")
-    link(rel="icon", type="image/png", sizes="32x32", href="img/fav/favicon-32x32.png")
-    link(rel="icon", type="image/png", sizes="16x16", href="img/fav/favicon-16x16.png")
-    link(rel="manifest", href="img/fav/site.webmanifest")
-    link(rel="mask-icon", href="img/fav/safari-pinned-tab.svg", color="#5bbad5")
-    meta(name="msapplication-TileColor", content="#da532c")
-    meta(name="theme-color", content="#ffffff")
-    title iPsychologist - Психотерапия онлайн
-    link(href="https://fonts.googleapis.com/css?family=Montserrat:700&amp;subset=cyrillic" rel="stylesheet")
-    link(href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&amp;subset=cyrillic-ext" rel="stylesheet")
+    title Idoc service - Срочный ремонт телефона. Недорого.
+    link(href="https://fonts.googleapis.com/css?family=PT+Sans:400,700&amp;subset=cyrillic" rel="stylesheet")
     link(href='styles/libs.min.css' rel='stylesheet')
     link(href='styles/main.css?12333313' rel='stylesheet')
-
-    meta(name="description" itemprop="description" content="iPsychologist – Психотерапия онлайн. Подбор психотерапевта онлайн. Видео-чат. Бесплатная первая консультация. Психологическая помощь. Полная конфиденциальность.")
-    meta(property="og:locale" content='ru-RU')
-    meta(property="og:type" content='article')
-    meta(property="og:description" content='iPsychologist – Психотерапия онлайн. Подбор психотерапевта онлайн. Видео-чат. Бесплатная первая консультация. Психологическая помощь. Полная конфиденциальность.')
-    meta(property="og:url" content='http://www.ipsychologist.online/')
-    meta(property="og:title" content='iPsychologist - Психотерапия онлайн')
-    meta(property="og:image" content='http://www.ipsychologist.online/img/logo.png')
-    meta(property="og:image:width" content='150')
-    meta(property="og:og:image:height" content='125')
-    meta(property="og:site_name" content='iPsychologist')
+    link(rel="shortcut icon" href="img/favicon.ico")
 
   body
     include var.pug

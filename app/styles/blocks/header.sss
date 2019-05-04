@@ -1,100 +1,359 @@
 .header
-  position: fixed
-  z-index: 999
-  left: 0
-  right: 0
-  top: 0
-  background-color: rgb(233, 233, 233)
-  box-shadow: 0
-  transition: $transition
+  background: resolve('action-bg.jpg') no-repeat center / cover
+  color: #fff
+  position: relative
+  height: 700px
 
-  &--scroll
-    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.35)
-
-    ^&__container
-      height: 72px @md 95px @xl 95px
-
-  &--menu-open
+  &:after
+    content: ''
+    display: block
+    position: absolute
+    z-index: 1
+    left: 0
+    right: 0
+    bottom: -40px
+    height: 120px
     background: #fff
-    box-shadow: none
-    border-bottom: 1px solid #ececec @md 0
+    transform: skewY(2.5deg)
+
+  &--success
+    height: 700px @sm 550px @lg 500px
 
   &__container
-    position: relative
-    box: space-between center
-    padding: 20px 3vw @sm 20px 0 @md 18px 0 51px @xl 0
-    height: 72px @md 101px @xl 114px
-    transition: $transition
-    will-change: height
+    box: horizontal top center wrap @xs top @lg horizontal space-between middle wrap
+    padding: 25px * @xl 25px *
+
+  &__col
+    flex: initial @xl 20%
+    box: vertical center middle
+    position: static @lg relative
+
+    &:after
+      content: ''
+      position: absolute
+      height: 150px
+      width: 2px
+      display: none @xl block
+      background-color: #fff
+      right: 0
+
+  &__main
+    box: vertical middle center @xs left @sm vertical middle left @lg horizontal middle center
+    flex: 100% @sm 2 0 @lg initial @xl 40%
+
+  &__slogan
+    max-width: 100% @lg 155px
+    margin-left: 25px @lg 45px @xl 45px
+    margin: 20px * 30px @lg 30px * 30px @xl 0 * 0
+
+    &-item
+      position: relative
+      text: 14px @xs 16px @sm 14px
+      padding-left: 10px
+
+      &:nth-child(1):before
+        left: -26.63px
+
+      &:nth-child(2):before
+        left: -22.64px
+
+      &:nth-child(3):before
+        left: -23.24px
+
+
+      @each $item, $i in (fast, price, gift), (1,2,3)
+        &:nth-child($(i))
+
+          &:before
+            position: absolute
+            display: block
+            content: ''
+            background: svg-load('header/$(item).svg') no-repeat left center / contain
+            size: size('header/$(item).svg')
+            top: 50%
+            transform: translateY(-50%)
+
+      & + &
+        margin-top: 6px
+  &__address
+    flex: @xs-down 45%
+
+  &__actions
+    box: horizontal center middle @xs top @sm right bottom @lg vertical
+    flex: 100% @lg 20%
+    margin-top: 30px @sm -60px @md -40px @lg 0
+
+    &::after
+      display: none @xl none
+
+    .btn + .btn
+      margin-top: 0 @lg 15px
+      margin-left: 15px @xs 30px @sm 15px @lg 0
+
+    .btn
+      display: inline-block
+      padding: @md-down * 12px
 
   &__logo
-    display: block
-    size: 48px 22px
-    background: svg-load('logo.svg', fill: $secondary-dark) no-repeat center / contain
-    will-change: background
-    transition: $transition
-    opacity: 1
+    display: none
+    width: 167px
+    height: auto
+    margin-top: -10px
 
-    &:hover
-      background: svg-load('logo.svg', fill: $primary-dark) no-repeat center / contain
+    img
+      width: 100%
+      height: auto
 
-    &:active
-      opacity: .5
+    &--white
+      display: block
 
   &__nav
-    box: center
-    box: @md-down vertical center
-    display: @md-down none
-    position: fixed @md absolute @xl static
-    z-index: 99
-    left: @md-down 0
-    right: @md-down 0
-    bottom: initial @md -10px
-    top: @md-down 73px
-    background-color: @md-down #fff
-    height: calc(100vh - 73px) @md initial
+    flex: 100%
+    background: rgba(255, 255, 255, .6)
+    display: none @lg flex
+    margin-top: 50px
+    justify-content: center
 
-    &&--open
-      display: flex
+    &.container--stretch
+      flex: none
 
-  &__nav-link
-    text: $secondary-dark 14px 60px 600 @md 13px * 700 @xl 14px
-    text-align: center
-    transition: $transition
-    text-transform: uppercase
-    text-decoration: none
-    box: @md-down center middle
-    width: @md-down 100%
-    height: 60px @md initial
-    opacity: 1
-    border-bottom: 1px solid #ececec @md 0
+    &-container
+      padding: 20px 0
 
-    & + &
-      margin-left: 0 @md 30px
+    &-link
+      text: $secondary 18px 1 600
+      text-decoration: none
 
-    &:hover, &--active
-      text: $secondary
+      & + &
+        margin-left: 50px
 
-    &:active
-      opacity: .5
+      &:hover, &-active
+        text-decoration: underline
 
-  &__nav-soc
-    display: flex @md none
-    margin: 30px auto
-
-  &__mobile-menu
-    display: block @md none
-    border: 0
-    outline: 0
-    background-color: transparent
-
-    .menu-global
-      border-color: $secondary-dark
-
-  &__soc
-    display: none @md flex @xl none
 
   &__btn
-    padding: @xl-down 10px 17px
-    display: block
+    padding: @xs-down * 10px *
 
+  &__mobile-menu
+    position: absolute
+    right: 10px @sm -16px @md 0
+    display: block @lg none
+    top: 38px @md 28px @lg 20px
+
+
+  //open menu
+  &--menu-open
+    position: fixed 0 0 0 0
+    overflow-y: scroll
+    background: #fff
+    z-index: 9
+    padding-bottom: 120px
+
+    .phones
+      display: none
+
+    ^&__main
+      box: vertical center
+
+    .address
+      display: none
+
+    .soc--header
+      display: flex
+      position: absolute
+      bottom: calc(-40px + -50px)
+      left: 50%
+      transform: translate(-50%)
+      z-index: 12
+
+      @each $item in 1, 2, 3
+        .soc__item:nth-child($(item))
+          background: svg-load('soc/$(item).svg') no-repeat center / contain
+          size: size('soc/$(item).svg')
+
+          &:hover
+            background: svg-load('soc/$(item)-color.svg') no-repeat center / contain
+
+          &:active
+            opacity: .5
+
+
+    ^&__logo
+      display: inline-block
+      margin-top: 0
+
+    ^&__logo--white
+      display: none @lg inline-block
+
+    ^&__slogan
+      display: block
+      color: $secondary
+      margin: 0
+      text-align: center
+      margin-top: 10px
+      margin-bottom: 20px
+
+    ^&__actions
+      position: absolute
+      left: 50%
+      transform: translate(-50%)
+      bottom: -30px
+
+      .btn--outline
+        border-color: $secondary
+        color: $secondary
+
+        &:hover
+          border-color: $primary-dark
+          color: #fff
+
+    ^&__mobile-menu
+
+      .menu-global
+        border-top-color: $secondary
+
+    ^&__nav
+      background: #fff
+      display: block
+      margin-top: 0
+
+      &-container
+        padding: 20px 0
+        box: vertical center
+
+      &-link
+        color: $secondary
+
+        & + .header__nav-link
+          margin-left: 0
+          margin-top: 30px
+
+        &:hover, &-active
+          text-decoration: underline
+
+    .phones__text
+      display: none @lg block
+
+
+
+
+
+
+.phones
+  box: vertical
+
+  &--header
+    flex: @xs-down 45%
+
+  &__numbers
+    margin: 0
+    font-size: 13px @xs 16px @sm 14px
+
+    &-item
+      box: horizontal
+      text-decoration: none
+      color: #fff
+
+      &:hover
+        text-decoration: underline
+
+      & + &
+        margin-top: 8px
+
+      @each $item, $i in (life, kyiv, voda), (1,2,3)
+        &:nth-child($(i))
+          &:before
+            display: inline-block
+            margin-right: 10px
+            content: ''
+            background: resolve('header/$(item).png') no-repeat left center / contain
+            size: size('header/$(item).png')
+
+  &--footer
+    box: vertical left
+    font-size: 14px @md 16px
+
+    ^&__numbers
+      margin: 10px 0
+
+
+
+
+  &__text
+    max-width: 160px
+    margin-top: 0
+    margin-bottom: 10px
+
+  &__numbers
+    margin-bottom: 10px
+
+.soc
+  justify-content: space-between
+  align-items: center
+  margin-top: 15px
+
+  &__item
+    transition: $transition
+    display: inline-block
+
+    @each $item in 1, 2, 3
+      &:nth-child($(item))
+        background: svg-load('soc/$(item).svg') no-repeat center / contain
+        size: size('soc/$(item).svg')
+
+        &:hover
+          background: svg-load('soc/$(item)-color.svg') no-repeat center / contain
+
+        &:active
+          opacity: .5
+
+      & + &
+        margin-left: 15px
+
+  &--light
+    justify-content: left
+
+    ^&__item
+      @each $item in 1, 2, 3
+        &:nth-child($(item))
+          background: svg-load('soc/$(item)-l.svg') no-repeat center / contain
+          size: size('soc/$(item).svg')
+
+          &:hover
+            background: svg-load('soc/$(item)-color.svg') no-repeat center / contain
+
+.address
+
+
+  &--header
+    margin-right: 30px @md 60px @lg 30px @xl 0
+  
+  p + p
+    margin-top: 7px
+
+  p
+    box: horizontal middle
+    font-size: 14px @xs 16px @sm 14px
+
+
+    &:first-child
+      margin-bottom: 5px
+
+      &:before
+        display: none
+
+    &:before
+      content: ''
+      display: inline-block
+      size: 14px 19px
+      margin-right: 10px
+      background: svg-load('icons/marker.svg', fill: $secondary) no-repeat center
+
+  &__city
+    text: 14px @xs 18px @sm 16px
+    margin-bottom: 10px
+
+  &--light
+    p
+      &:before
+        background: svg-load('icons/marker.svg', fill: #fff) no-repeat center

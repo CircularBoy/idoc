@@ -1,127 +1,56 @@
 .footer
-  background: #23272c
-  text: rgba(255, 255, 255, .7) * * 400
-  padding: 30px 0 @sm 45px 0 @xl 50px 0
-  position: relative
-  z-index: 2
+  color: #fff
+  background-color: $secondary-dark
+  padding: 30px 0 15px @sm 50px 0 25px
 
   &__wrap
-    box: vertical center wrap @sm top horizontal space-between wrap
+    box: vertical center @xs horizontal space-between top
+
+  &__col
+    flex: initial @lg 25%
+
+  &__services
+    display: none @xs block
 
   &__nav
-    display: @md-down none
-    width: 100% @xl 50%
-    min-width: 100% @xl 50%
-    box-sizing: border-box
-    padding-right: 30px
-    box: top @xl space-between
-    align-self: flex-start
-    margin-bottom: 12px @xl 0
-
-    &-link
-      text: rgba(255, 255, 255, .7) 12px 24px 700
-      transition: $transition
-      text-transform: uppercase
-      text-decoration: none
-
-      & + &
-        margin-left: 30px @xl 0
-
-      &:hover, &--active
-        text: $secondary
-
-      &:active
-        opacity: .5
+    display: none @lg block
 
   &__contacts
-    box-sizing: border-box
-    padding: 0 @xl 0 30px 0 10px
-    width: 50% @xl 25%
-    min-width: 100% @xs 68% @sm 50% @xl 25%
-    box: vertical center @xs left
+    display: none @md block
+
+  &__title
+    font-size: 16px @md 18px
+    margin-bottom: 16px
+
+    &:before
+      content: ''
+      display: inline-block
+      height: 23px
+      width: 4px
+      background-color: $primary
+      margin-right: 15px
+      margin-bottom: -5px
+
+  &__list
+    padding-left: 19px
 
     &-item
-      position: relative
-      text: 14px @xl 16px
-      padding-left: 30px
-      text-align: center @xs left
-      
+      font-size: 14px @md 16px
+
       & + &
-        margin-top: 10px
-      
+        margin-top: 6px
+
       &:before
-        position: absolute
-        margin-right:  0
-        left: 0
-        top: 0
-        content: ''
-        display: inline-block
+        display: none
 
-      &:nth-child(1):before
-        background: svg-load('phone.svg', fill: $secondary) no-repeat center / contain
-        size: 12px 21px
-        margin-bottom: -4px
-        left: 3px @xl 0
-        position: @xs-down absolute
-        left: @xs-down 22px
-        
+  &__nav-link
+    color: #fff
+    text-decoration: none
 
-      &:nth-child(2):before
-        background: svg-load('email.svg', fill: $secondary) no-repeat center / contain
-        size: 20px 14px
-        top: 5px
-        position: @xs-down absolute
-        left: @xs-down 80px
-        top: @xs-down 3px
-
-
-    &-title
-      display: inline-block @xl block
-      margin-right: 10px @xl 0
-      text-transform: uppercase
-
-    &-link
-      display: block
-      text: rgba(255, 255, 255, .7)
-      transform: @xs-down translateX(-16px)
-
-  &__doc
-    box-sizing: border-box
-    padding-left: 0 @xl 30px
-    width: initial @xl 25%
-    min-width: 70% @sm initial @xl 25%
-    box: vertical space-between
-    text: 12px @xl 14px
-    margin: 15px 0 @sm 0
-
-    &-title
-      text-align: center @sm left
-      text-transform: uppercase
-      margin-bottom: 10px @xl 20px      
-
-    &-link
-      text-align: center @sm left
-      display: block @xl inline-block
-      text: rgba(255, 255, 255, .7) 
-  
-  &__socials
-    margin-top: 0 @sm 10px  @xl -67px
-    margin-bottom: 18px
-
-  &__soc
-    justify-content: @sm-down center
-    max-width: 100%
-
-  &__logo
-    margin-bottom: 12px @sm 20px
-    margin: @sm-down * auto
-    display: block
-    size: 48px 22px
-    background: svg-load('logo.svg', fill: $secondary) no-repeat center / contain
-    will-change: background
-    transition: $transition
+    &:hover
+      text-decoration: underline
 
   &__copy
-    text-align: center @sm left
-    text: rgba(255, 255, 255, .7) 12px * 300
-
+    padding: 20px 0 0
+    text-align: center
+    font-size: 12px @sm 14px

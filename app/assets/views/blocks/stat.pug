@@ -1,0 +1,9 @@
+section#stat.stat
+  .container
+    h2.title.titl Наши результаты
+
+    .stat__wrap
+      each item in stat
+        .stat__item
+          .stat__number= item.number
+          .stat__text= item.title

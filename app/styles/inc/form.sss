@@ -1,95 +1,93 @@
 .form
   width: 100%
-  max-width: 370px
-  margin-right: 1px @xs 0
+  max-width: 90% @sm 370px
+  margin: * auto
+  // margin-right: 1px @xs 0
   position: relative
 
-  &--hide
-    background-color: #000 !important
-
-      
-  &--horizontal
-    max-width: 100%
-
-    ^&__form
-      box: horizontal right space-between wrap
-      max-width: 370px @lg 100%
-      margin: 0 auto
-
-      .input-field
-        margin-top: 0
-        margin-bottom: 26px
-        width: 100% @lg 48% @xl 270px
-
-      .input-field:last-of-type
-        margin-bottom: 0
-        margin-top: 15px
-        min-width: 100%
-        text-align: center
-        box: vertical center
-
   &__title
+    text: 21px @sm 28px
+    text-align: center
     margin-bottom: 20px
-    text: 16px * 600 @sm 18px
-    text-transform: uppercase
+
+    & + p
+      text-align: center
+
+  &__desc
+    margin-bottom: 20px
+    text: 14px @sm 16px
     text-align: center
 
-  &__politic
-    margin-top: 10px
-    text: 12px
-    text-align: center
-    text-transform: uppercase
-    cursor: pointer
+  &--action
+    padding: * 0 @xl * 60px
+    box-sizing: content-box
+    ^&__desc
+      margin: * 0 @xl * -60px
 
-    &:after
-      content: ''
-      display: inline-block
-      margin-left: 6px
-      background: svg-load('lock.svg', fill: $secondary)
-      size: size('lock.svg')
-  
-  &__form
-    & > * 
-      opacity: 1
-      tansititon: $transition
-      
-    &--load
-      & > *:not(.form-load)
-        opacity: 0
+  &--border
+    .input
+      border: solid 1px $secondary
 
-      .form-load
-        display: block
+  &--inline
+    box: vertical @lg horizontal center middle wrap
+    max-width: 360px @lg 100%
+    margin: 0 auto
+    padding: 0 @xl 0
 
-    
+    ^&__desc
+      flex: 100%
+      margin: * 0 @xl * 0 40px
+
+      &-inner--delivery
+        max-width: 100% @md 400px
+        margin: 0 auto
+        text-align: left
+        box: horizontal middle center
+
+        &:before
+          content: ''
+          background: svg-load('icons/delivery.svg') no-repeat
+          display: inline-block
+          size: 93px 38px
+          margin-right: 25px
+
+    .input-field + .input-field
+      margin-top: 30px @lg 0
+      margin-left: 0 @lg 30px
+
+  .btn
+    padding:  19px 40px
 
 .input-field
   opacity: 1
-  box: center
+  box: center middle
   transition: $transition
+  position: relative
 
   & + &
     margin-top: 26px
-  
-  &:after
+
+  &:before
     content: ''
-    margin-left: -51px
-    position: relative
-    z-index: 22
+    position: absolute
+    left: 15px
+    top: 14px
+    z-index: 1
     pointer-events: none
     opacity: 1
     transition: $transition
 
-  @each $icon in person, email, phone, skype
+  @each $icon in person, phone
     &--$(icon)
-      &:after
-        background: svg-load('$(icon).svg', fill: $secondary)
+      &:before
+        background: svg-load('icons/$(icon).svg', fill: $secondary)
         display: inline-block
         size: size('$(icon).svg')
 
-  @each $icon in person, email, phone, skype
+  @each $icon in person, phone
     &--$(icon).input-field--error
-      &:after
-        background: svg-load('$(icon).svg', fill: $primary-dark)
+      &:before
+        background: svg-load('icons/$(icon).svg', fill: $primary-dark)
         display: inline-block
         size: size('$(icon).svg')
 
@@ -102,8 +100,8 @@
 
   &--error
     .input
-      border-color: #ce111d
-      text: #b79569
+      border-color: #F44336
+      text: #F44336
 
   &--focus
 
@@ -115,16 +113,18 @@
   border: 1px solid
   border-color: transparent
   padding: 0 15px
+  padding-left: 50px
   height: 49px
   line-height: 49px
   outline: 0
-  text: $secondary-dark 16px @sm 18px
+  text: $secondary 14px @sm 16px
   font-family: $ff
   width: 100%
   transition: $transition
 
   &::placeholder
-    text: rgb(52, 49, 38, .59)
+    text: $secondary
+    opacity: .8
 
   &:focus
     border-color: $secondary-dark

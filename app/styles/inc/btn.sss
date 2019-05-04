@@ -3,34 +3,30 @@
   display: inline-block
   border: 0
   outline: 0
-  padding: 20px 26px
-  text: #fff 12px 12px 700
+  padding: 14px 21px @lg 17px 24px
+  text: $secondary 14px 12px 400 @sm 16px @lg 16px
   cursor: pointer
-  text-transform: uppercase
   transition: $transition
   text-decoration: none
   white-space: nowrap
   opacity: 1
 
+
   &:hover
     background-color: $primary-dark
+    color: #f7f7f7
 
   &:active
     opacity: .5
 
-  &--small
-    text: 12px
+  &--outline
+    padding: 13px 21px @lg 17px 24px
+    border: 1px solid #fff
+    color: #fff
+    background-color: transparent
 
-  &--normal
-    text: 14px
+    &:hover
+      border-color: $primary-dark
 
-  &--big
-    text: 12px @xl 16px
-
-  &--wide
-    padding: 20px 40px
   
-  &--all-width
-    width: 100%
-    text-align: center
 

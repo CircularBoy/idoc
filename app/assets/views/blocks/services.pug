@@ -1,0 +1,15 @@
+section#services.services
+  .container
+    h2.title Мы ремонтируем
+
+    .services__slider
+      .glide
+        .services__slider-prev.glide__arrow.glide__arrow--prev
+        .services__slider-next.glide__arrow.glide__arrow--next
+        .glide__track(data-glide-el='track')
+          .glide__slides
+            each item in services
+              .glide__slide
+                .services__item
+                  img.serivces__img(src="img/services/" +item.img+ ".jpg")
+                  p.services__title= item.title

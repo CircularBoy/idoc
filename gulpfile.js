@@ -20,15 +20,18 @@
     cssbeautify = require('gulp-cssbeautify'),
     stripCssComments = require('gulp-strip-css-comments'),
     babel = require("gulp-babel"),
-    cssDeclarationSorter = require('css-declaration-sorter');
+    cssDeclarationSorter = require('css-declaration-sorter'),
+    autoprefixer = require('gulp-autoprefixer'),
+    gulpif = require('gulp-if');
 
   // Попробовать позже https://www.npmjs.com/package/gulp-pug-inheritance
   // jadeInheritance = require('gulp-jade-inheritance'),
   // changed = require('gulp-changed'),
   // cached = require('gulp-cached'),
-  // gulpif = require('gulp-if'),
   // filter = require('gulp-filter');
 
+  //dev flag NODE_ENV=prod
+  const prod = !process.env.NODE_ENV || process.env.NODE_ENV == 'prod';
   //write html by pug
   gulp.task('views', function buildHTML() {
     return gulp
@@ -93,7 +96,7 @@
   gulp.task('postcss', function() {
     return gulp
       .src(['app/styles/main.sss'])
-      .pipe(sourcemaps.init())
+      // .pipe(sourcemaps.init())
       .pipe(
         postcss(processors, { parser: sugarss }).on('error', notify.onError())
       )
@@ -103,8 +106,13 @@
           autosemicolon: true
         })
       )
+      .pipe(gulpif(prod, autoprefixer({
+        browsers: ['last 2 versions'],
+        cascade: false
+      })))
+      .pipe(gulpif(prod, uglifycss()))
       .pipe(rename({ extname: '.css' }))
-      //.pipe(sourcemaps.write('/'))
+      // .pipe(sourcemaps.write('/'))
       .pipe(gulp.dest('dest/styles/'));
   });
 
@@ -191,4 +199,5 @@
   });
 
   gulp.task('dev', gulp.series('build', gulp.parallel('watch', 'server')));
+
 })();

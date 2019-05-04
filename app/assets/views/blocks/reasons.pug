@@ -1,0 +1,11 @@
+section#reasons.reasons
+  .container
+    h2.title.title--reasons
+      span 6 Причин
+      span доверить ремонт <br> именно нам
+
+    .reasons__wrap
+      each item in reasons
+        .reasons__item
+          img.reasons__img(src="img/reasons/" + item.img + ".svg")
+          .reasons__text= item.title

@@ -1,0 +1,14 @@
+section#manufac.manufac
+  .container
+    h2.title производители с которыми чаще всего работаем
+
+    .manufac__slider
+      .glide
+        .manufac__slider-prev.glide__arrow.glide__arrow--prev
+        .manufac__slider-next.glide__arrow.glide__arrow--next
+        .glide__track(data-glide-el='track')
+          .glide__slides
+            each item in [1,2,3,4,5,6,7,8,9]
+              .glide__slide
+                .manufac__item
+                  img.manufac__img(src="img/manufac/" +item+ ".png")

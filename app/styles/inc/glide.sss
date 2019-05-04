@@ -2,7 +2,7 @@
 
   &__bullets
     box: center middle
-    
+
     &--only-xs
       display: flex @sm none
 
@@ -38,7 +38,7 @@
 
     &--active
       background-color: #818181
-  
+
     &--lighter
       background-color: @sm-down rgba(255, 255, 255, .3)
 
@@ -46,7 +46,7 @@
         background-color: @sm-down rgba(255, 255, 255, 1)
 
   //panel for all functional
-  
+
   &__panel
     box: middle center @sm space-between center
     position: absolute @md initial @xl absolute
@@ -70,54 +70,26 @@
     margin-top: 3px
 
   &__arrow
-    display: block @lg none
+    display: block
     position: absolute
     top: 40% @md 35%
-    border: 0 @md 1px solid #000
-    // background: svg-load('circle-slider.svg') no-repeat center
+    background: svg-load('icons/arrow.svg') no-repeat center
     cursor: pointer
     transition: $transition
     size: 58px
-    border-radius: 50%
-    z-index: 998
-    box-shadow: none @md 0px 3px 9.7px 0.3px rgba(0, 0, 0, 0.23)
-
-    &:before
-      content: ''
-      position: absolute 0px 0px 0px 0px
-      display: block
-      z-index: 9999
-      box-shadow: inset 0px 0 0 1px #fff
-      border-radius: 50%
-      opacity: 0
-
-    &:after
-      content: ''
-      position: absolute 0px 0px 0px 0px
-      display: block
-      z-index: 9999
-      transform: rotate(-90deg)
-      background: svg-load('arrow-slider.svg') no-repeat top 8px center / 60%
-      border-radius: 50%
-      transition: $transition
+    z-index: 1
+    opacity: .8
 
     &--prev
-      left: 10px @md 30px
+      left: -20px @md -30px
+      transform: rotate(180deg)
 
     &--next
-      right: 10px @md 30px
-
-      &:after
-        transform: rotate(90deg)
+      right: 10px @sm -20px @md -30px
 
     &:hover
-      border-color: transparent
+      opacity: 1
 
     &:active
-      border-color: transparent
-      box-shadow: 0px 3px 4.95px 0.05px rgba(0, 0, 0, 0.23)
+      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.23)
 
-      &:after
-        opacity: .5
-
-  

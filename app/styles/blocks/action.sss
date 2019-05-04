@@ -1,0 +1,63 @@
+.action
+  margin-top: -220px @sm -460px @lg -400px
+  color: $secondary
+  width: 100%
+  position: relative
+  z-index: 2
+
+  &--success
+    margin-top: -270px @sm -275px @lg -215px
+
+    ^&__wrap
+      box: verical top center @lg vertical top center
+
+    ^&__title
+      margin-bottom: 40px @lg 40px
+
+  &__wrap
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25)
+    padding: 50px 0 @lg 70px 0
+    box: vertical center middle @lg horizontal space-around middle
+    background-color: #fff
+
+  &__title
+    font-weight: 700
+    margin-bottom: 40px @lg 0
+    margin-left: -50px @lg 0
+
+    h1
+      text-transform: uppercase
+      box: vertical middle left
+
+      & .action__title-part:nth-of-type(1)
+        font-size:  48px
+        line-height: 1
+
+      & .action__title-part:nth-of-type(2)
+        font-size: 24px
+
+      & .action__title-part:nth-of-type(3), & .action__title-part:nth-of-type(4)
+        display: inline-block
+        background: #E28903
+        padding: 4px 14px 4px
+        margin: -34px -50px * *
+        font-size: 18px
+        color: $secondary
+        align-self: flex-end
+
+      & .action__title-part:nth-of-type(4)
+        padding-left: 20px
+        margin-top: -3px
+        margin-right: -35px
+
+  &__desc
+    text: 18px @xl 18px
+    b
+      font-weight: 700
+
+  &__timer
+    margin-left: 20px
+    text: 28px * 700
+
+    &--expired
+      font-size: 18px

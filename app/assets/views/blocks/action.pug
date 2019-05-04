@@ -1,0 +1,26 @@
+section#action.action
+  .container
+    .action__wrap
+      .action__title
+        h1
+          span.action__title-part Ремонт
+          span.action__title-part Гаджетов
+          span.action__title-part Любой
+          span.action__title-part Сложности
+
+      .action__form
+        form.form--action.form.form--border.formSimple
+          input.action-input(type='hidden' value='Скидка действительна')
+          .form__desc.action__desc
+            p <b>Скидка 10%</b> если оставите заявку <b>сейчас</b>
+            p До конца акции:
+              span.timer.action__timer
+
+          .input-field.input-field--person.input-field
+            input.input(type='text' placeholder='Введите имя' name="name")
+          .input-field.input-field--phone.input-field
+            input.input(type='text' placeholder='Номер телефона' name="phone")
+          .input-field.input-field.input-field
+            .btn.form--btn Заказать звонок
+
+

@@ -1,11 +1,14 @@
-section.success
+section#action.action.action--success
+  .container
+    .action__wrap
+      //- .action__title
+      //-   h1
+      //-     span.action__title-part Ремонт
+      //-     span.action__title-part Гаджетов
+      //-     span.action__title-part Любой
+      //-     span.action__title-part Сложности
 
-  .success__inner
-    .success__logo
-    h1.h1.success__title Спасибо за заявку!
-    .success__desc Мы свяжемся с Вами в ближайшее время
-
-  
-    a.success__btn.btn.btn--wide.btn--small.experts__button(href='http://www.ipsychologist.online') вернуться на главную
-    .success__soc-desc Мы в социальных сетях:
-    +soc(class='success__soc soc soc--horizontal')
+      .action__form
+        form.form.form--border
+          .form__title Спасибо за заявку
+          p Мы свяжеся с Вами в ближайшее время!

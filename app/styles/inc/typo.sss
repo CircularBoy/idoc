@@ -1,20 +1,37 @@
 body
-  text: $secondary-dark 400 14px 1.5 @md 16px
+  text: $secondary 400 16px 1.5 @lg 16px
   font-family: $ff
 
-.brand-name
-  font-family: 'Montserrat'
-  text: $secondary-dark 30px * 700
+.title
+  text-align: center
+  text: $secondary 28px 1.4 @md 36px
+  line-height: 1.2
+  position: relative
   text-transform: uppercase
-  letter-spacing: 0.1em
+  max-width: 100% @md 760px
+  padding-bottom: 30px
+  margin-bottom: 60px
+  margin: * auto
 
-  &__letter
-    text: #b79569 36px
+  &:after
+    content: ''
+    position: absolute
+    left: 50%
+    transform: translate(-50%)
+    bottom: 0
+    width: 150px
+    height: 4px
+    background: $primary
 
-.h1
-  display: block
-  text: 800 37px 48px
-  line-height: @md-down 29px
+  &--reasons
+    span:nth-child(2)
+      font-size: 14px
+      background-color: #E28903
+      display: inline-block
+      padding: 4px 6px
+      color: #fff
+      text-align: left
+      margin-left: 10px
 
 .h2
   text: 600 21px 1.3 @md 23px @lg 28px
@@ -38,36 +55,3 @@ ul
       size: 7px
       margin-bottom: 3px
       margin-right: 8px
-
-.doc
-  .h1
-    text: 22px 1.1 @sm 36px
-    margin-bottom: 20px @sm 35px @lg 40px
-    text-transform: uppercase
-
-    & + p
-      width: 100% @sm 70%
-      text: 14px * 600
-
-  .h2
-    margin: 30px 0 20px
-
-  p + p
-    margin-top: 10px
-  
-  h5
-    text: 18px
-    margin-bottom: 10px
-
-  h6
-    margin: 20px 0 10px
-    text: * * 600
-
-  .offert__bottom
-    box: center space-between
-
-  .sign
-    max-width: 100px @sm 160px @lg 240px
-
-  .btn
-    margin: 40px 0
