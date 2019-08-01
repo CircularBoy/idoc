@@ -5,6 +5,7 @@
 //
 //cookies
 //
+
 function setCookie(name, value, options) {
   options = options || {};
 
@@ -145,7 +146,7 @@ function formHadle(form, phpHandler, modal) {
 
         if (request.readyState === 4 && request.status === 200) {
           console.log('text ' + request.responseText);
-          if(modal) {
+          if (modal) {
             modal.close();
           }
           window.location.href = "https://idocservice.com.ua/thank/#action";

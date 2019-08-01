@@ -5,55 +5,55 @@ mixin soc()
     a.soc__item.soc__item--inst(href='https://www.instagram.com/ipsychologist.online' target="_blank")
     a.soc__item.soc__item--face(href='https://www.facebook.com/ipsychologist.online' target="_blank")
 
-mixin next-block(link)
-  a.next-block.scroll-to(href='#' + link)
+mixin header(headerClass)
+  header(class=headerClass ? 'header header--open header--'+headerClass : 'header header--open' data-gumshoe-header)
+    .header__container.container
 
-mixin expert(item, full)
-  .experts__visual
-    .experts__avatar(class='experts__avatar--' + item.img)
-    .experts__item-button.btn.btn--small.btn--wide(data-show-id='recall' data-exp-id= item.id @click="activeModal = null; currentExpert = '"+item.id+"'") Заказать сессию
+      .header__main.header__col
+        a.header__logo(href='/')
+          img(src="img/logo.svg")
 
-  .experts__text
-    .experts__name= item.name
-    .experts__dir= item.dir
-    .experts__xp= item.xp
-    if(!full)
-      .experts__desc= item.desc
-      .experts__detail.expert-detail(@click="activeModal = 'short-form "+item.id+"'") Подробнее
+        .header__slogan
+          p.header__slogan-item Срочный ремонт любой сложности
+          p.header__slogan-item Не дорого
+          p.header__slogan-item Защитное стекло в подарок
 
-    if(full)
-      .experts__desc.experts__desc--full!= item.descFull
+      .header__address.header__col
+        div
+          address.address.address--header.address--light
+            .address__city г. Днепр
+            p вул. Звилиста, 5
 
-      .experts__education
-        .experts__education-title Образование:
+          .soc.soc--header.soc--light
+            .messenger
+              a.messenger__item.messenger__item--viber(href="viber://add?number=380973714394")
+              a.messenger__item.messenger__item--telegram(href="tg://resolve?domain=upmobile_net")
 
-        ul.experts__education-list
-          each li in item.education
-            li.experts__education-li= li
+      .phones.phones--header.header__col
+        .phones__text
+          p Поможем. Звоните прямо сейчас!
 
-mixin form(selector, title)
+        .phones__numbers
+          a(href='tel:380951949355').phones__numbers-item +38(095) 194-93-55
+          a(href='tel:380980151255').phones__numbers-item +38(098) 015-12-55
+          a(href='tel:380631413953').phones__numbers-item +38(063) 141-39-53
 
-  form.form__form.form__form(method='post' class=selector)
-    .form-load
-      .loader
-      .form-load__text Отправляем данные
+      .header__actions.header__col
+        button.header__btn.btn(data-show-id='recall') Заказать звонок</span>
+        button.header__btn.btn.btn--outline(data-show-id='status') Статус ремонта</span>
 
-    .input-field.input-field--person.input-field--bordered
-      input(type='hidden' name="DATA[TITLE]" value=title)
-      input.input(type='text' placeholder='Имя' name="DATA[NAME]")
+      .header__mobile-menu
+        .menu
+          .menu-global.menu-top
+          .menu-global.menu-middle
+          .menu-global.menu-bottom
 
-    .input-field.input-field--email.input-field--bordered
-      input.input(type='text' placeholder='E-mail' name="DATA[ADDRESS]")
+      .header__nav
+        .header__nav-container
+          a.header__nav-link.scroll-to(href='/#services' data-gumshoe) Главная
+          a.header__nav-link.scroll-to(href='/#services' data-gumshoe) Услуги
+          a.header__nav-link.scroll-to(href='/#reviews' data-gumshoe) Отзывы
+          a.header__nav-link.scroll-to(href='/#reasons' data-gumshoe) О нас
+          a.header__nav-link.scroll-to(href='/#footer' data-gumshoe) Контакты
 
-    .input-field.input-field--phone.input-field--bordered
-      input.input(type='text' placeholder='Телефон' name="DATA[PHONE_MOBILE]")
 
-    .input-field.input-field--skype.input-field--bordered
-      input.input(type='text' placeholder='Skype' name="DATA[IM_SKYPE]")
-    
-      input(type='hidden' data-input-id value='' name="DATA[COMMENTS]")
-
-    .input-field
-      button.btn.btn--wide.btn--big(type="submit") Попробовать бесплатно
-    
-      .form__politic(data-show-id='politic') Политика конфиденциальности

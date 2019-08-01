@@ -2,6 +2,7 @@
   background: resolve('action-bg.jpg') no-repeat center / cover
   color: #fff
   position: relative
+  overflow: hidden
   height: 700px
 
   &:after
@@ -11,7 +12,7 @@
     z-index: 1
     left: 0
     right: 0
-    bottom: -40px
+    bottom: -42px
     height: 120px
     background: #fff
     transform: skewY(2.5deg)
@@ -38,7 +39,7 @@
       right: 0
 
   &__main
-    box: vertical middle center @xs left @sm vertical middle left @lg horizontal middle center
+    box: vertical middle center @xs left @sm vertical middle left @lg horizontal middle center @xl space-between
     flex: 100% @sm 2 0 @lg initial @xl 40%
 
   &__slogan
@@ -81,7 +82,7 @@
   &__actions
     box: horizontal center middle @xs top @sm right bottom @lg vertical
     flex: 100% @lg 20%
-    margin-top: 30px @sm -60px @md -40px @lg 0
+    margin-top: 30px @sm -80px @md -70px @lg 0
 
     &::after
       display: none @xl none
@@ -95,17 +96,14 @@
       padding: @md-down * 12px
 
   &__logo
-    display: none
-    width: 167px
+    display: block
+    width: 122px @md 136px @lg 167px
     height: auto
     margin-top: -10px
 
     img
       width: 100%
       height: auto
-
-    &--white
-      display: block
 
   &__nav
     flex: 100%
@@ -145,9 +143,12 @@
   &--menu-open
     position: fixed 0 0 0 0
     overflow-y: scroll
-    background: #fff
+    background: $secondary-light
     z-index: 9
     padding-bottom: 120px
+
+    &:after
+      background-color: $secondary-light
 
     .phones
       display: none
@@ -213,7 +214,7 @@
         border-top-color: $secondary
 
     ^&__nav
-      background: #fff
+      background: $secondary-light
       display: block
       margin-top: 0
 
@@ -357,3 +358,25 @@
     p
       &:before
         background: svg-load('icons/marker.svg', fill: #fff) no-repeat center
+
+.messenger
+  box: center
+
+  &__item
+    width: 40px
+    height: 40px
+    border-radius: 50%
+    background-position: center
+    background-repeat: no-repeat
+    transition: .2s ease-in-out
+
+    & + &
+      margin-left: 15px
+
+    &--viber
+      background-color: #7B519C
+      background-image: svg-load('icons/viber.svg')
+
+    &--telegram
+      background-color: #31A5E0
+      background-image: svg-load('icons/telegram.svg')
