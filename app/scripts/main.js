@@ -552,4 +552,4 @@ function google_maps_lazyload(api_key) {
   }
 }
 
-google_maps_lazyload('AIzaSyDKHMTkHEWFerdIYypni1ca3XTW511OVfQ');
+google_maps_lazyload('');
