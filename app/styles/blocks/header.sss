@@ -1,8 +1,5 @@
 .header
-  background-image: resolve('action-bg.jpg')
-  background-size: cover
-  background-repeat: no-repeat
-  background-position: center
+  background: resolve('action-bg.jpg') no-repeat center / cover
   color: #fff
   position: relative
   overflow: hidden
@@ -146,8 +143,7 @@
   &--menu-open
     position: fixed 0 0 0 0
     overflow-y: scroll
-    background-color: $secondary-light
-    background-image: none !important
+    background: $secondary-light
     z-index: 9
     padding-bottom: 120px
 
