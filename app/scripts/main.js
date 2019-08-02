@@ -76,7 +76,6 @@ if (timer) {
     if (seconds < 0 || getCookie('timer') < 0) {
       clearInterval(setTimer);
       writeTime('время истекло');
-      console.log(seconds);
       timer.classList.add('action__timer--expired');
       timerInput.value = 'Скидка недействительна';
     } else {
@@ -488,3 +487,69 @@ if (simpleForms.length > 0) {
     formHadle(item, '../../../../googleapi/success.php', false);
   });
 }
+
+//google maps
+function initMap() {
+  var myLatLng = {lat: 48.46999066, lng: 35.0211525};
+  var map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: 48.4758803, lng: 35.0216194},
+    zoom: 14
+  });
+  var contentString = '<div id="content">'+
+    '<h5 id="firstHeading" class="firstHeading">г.Днепр, ул. Боброва, 1</h5>'+
+    '</div>';
+  var infowindow = new google.maps.InfoWindow({
+    content: contentString,
+  });
+  var marker = new google.maps.Marker({
+    position: myLatLng,
+    map: map,
+    title: 'Hello World!',
+    // icon: '<?php bloginfo('template_directory'); ?>/img/icons/marker.png'
+  });
+  marker.addListener('click', function() {
+    infowindow.open(map, marker);
+  });
+
+  // google.maps.event.addListener(infowindow, 'domready', function () {
+  //   var iwOuter = $('.gm-style-iw');
+
+  //   var iwBackground = iwOuter.prev();
+  //   iwBackground.addClass('infoContainer');
+  //   iwBackground.children(':nth-child(2)').addClass('infoOutter');
+  //   iwBackground.children(':nth-child(3)').addClass('infoAfter');
+  //   iwBackground.children(':nth-child(1)').css({'display' : 'none'});
+  // });
+}
+
+//observer map
+function google_maps_lazyload(api_key) {
+  'use strict';
+
+  if (api_key) {
+    var options = {
+      rootMargin: '100px',
+      threshold: 0
+    };
+
+    var map = document.getElementById('map');
+
+    var observer = new IntersectionObserver(
+      function(entries, self) {
+        // Intersecting with Edge workaround https://calendar.perfplanet.com/2017/progressive-image-loading-using-intersection-observer-and-sqip/#comment-102838
+        var isIntersecting = typeof entries[0].isIntersecting === 'boolean' ? entries[0].isIntersecting : entries[0].intersectionRatio > 0;
+        if (isIntersecting) {
+          var mapsJS = document.createElement('script');
+          mapsJS.src = 'https://maps.googleapis.com/maps/api/js?callback=initMap&key=' + api_key;
+          document.getElementsByTagName('head')[0].appendChild(mapsJS);
+          self.unobserve(map);
+        }
+      },
+      options
+    );
+
+    observer.observe(map);
+  }
+}
+
+google_maps_lazyload('AIzaSyDKHMTkHEWFerdIYypni1ca3XTW511OVfQ');
