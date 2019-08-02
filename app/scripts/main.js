@@ -553,3 +553,25 @@ function google_maps_lazyload(api_key) {
 }
 
 google_maps_lazyload('');
+
+//observ iframe
+var youtubeframe = document.getElementById('viedoGuide');
+
+if(youtubeframe) {
+  var options = {
+    rootMargin: '200px',
+    threshold: 0
+  };
+  var observer = new IntersectionObserver(
+      function(entries, self) {
+        var isIntersecting = typeof entries[0].isIntersecting === 'boolean' ? entries[0].isIntersecting : entries[0].intersectionRatio > 0;
+        if (isIntersecting) {
+          youtubeframe.src = 'https://www.youtube.com/embed/N3oCS85HvpY';
+          self.unobserve(youtubeframe);
+        }
+      },
+      options
+    );
+
+  observer.observe(youtubeframe);
+}
